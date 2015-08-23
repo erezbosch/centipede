@@ -5,7 +5,22 @@
     <link rel="stylesheet" type="text/css" href="lib/centipede.css">
   </head>
   <body>
-    <canvas id="game-canvas"></canvas>
+    <div class="info">
+      <h2>Controls</h2>
+      <ol>
+        <li>Arrow keys: move</li>
+        <li>Space: shoot</li>
+      </ol>
+      <h2>Gameplay</h2>
+      <ol>
+        <li>Shoot the centipede. Actually just shoot everything.</li>
+        <li>Pick up the green circles (powerups) when you can.</li>
+      </ol>
+    </div>
+    <div class="game">
+      <h1>Centipede</h1>
+      <canvas id="game-canvas"></canvas>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="lib/util.js"></script>
     <script src="lib/movingObject.js"></script>
@@ -21,12 +36,11 @@
     <script src="lib/spark.js"></script>
     <script src="lib/dropper.js"></script>
     <script>
-      var canvasEl = document.getElementById("game-canvas");
-      canvasEl.height = window.innerHeight;
-      canvasEl.width = window.innerWidth;
+      Centipede.canvasEl = document.getElementById("game-canvas");
+      Centipede.game = new Centipede.Game();
       new Centipede.GameView(
-        new Centipede.Game(canvasEl.width, canvasEl.height),
-        canvasEl.getContext("2d")
+        Centipede.game,
+        Centipede.canvasEl.getContext("2d")
       ).start();
     </script>
   </body>
