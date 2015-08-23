@@ -9,3 +9,4 @@
 * If you pick up a green powerup, it'll increase your firing rate, shot speed or number of shots.
 * If you pick up a red one, it'll decrease one of those things.
 * Sometimes a star looking thing will come out of the wall and chase you.
+* Sometimes a different star looking thing will drop from the ceiling and add mushrooms.
