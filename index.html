@@ -43,6 +43,7 @@
     <script src="lib/dropper.js"></script>
     <script>
       Centipede.canvasEl = document.getElementById("game-canvas");
+      Centipede.timers = [];
       Centipede.game = new Centipede.Game();
       new Centipede.GameView(
         Centipede.game,
