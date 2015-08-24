@@ -5,8 +5,11 @@ body {
 
 .info {
   float: left;
-  padding-right: 100px;
-  padding-top: 80px;
+  padding: 80px 50px 0 50px;
+}
+
+.info ul {
+  list-style-type: lao;
 }
 
 .game {
