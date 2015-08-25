@@ -1,5 +1,5 @@
 # Centipede
-### [Live](erezbosch.github.io/centipede)
+### [Live](https://erezbosch.github.io/centipede)
 ### Features
 * Arrow keys + spacebar to move & shoot.
 * There's a centipede.
