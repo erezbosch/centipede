@@ -1,6 +1,8 @@
 # Centipede
+
 ### [Live](https://erezbosch.github.io/centipede)
-* A browser version of the arcade game. Made with JavaScript and Canvas.
+A browser version of the arcade game. Made with JavaScript and Canvas. 
+
 ### Features
 * Arrow keys + spacebar to move & shoot.
 * There's a centipede.
