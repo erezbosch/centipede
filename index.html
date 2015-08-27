@@ -27,7 +27,7 @@
       <h1>Centipede</h1>
       <canvas id="game-canvas"></canvas>
     </div>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="lib/util.js"></script>
     <script src="lib/movingObject.js"></script>
@@ -42,10 +42,25 @@
     <script src="lib/powerup.js"></script>
     <script src="lib/spark.js"></script>
     <script src="lib/dropper.js"></script>
+    <script src="lib/jsfx.js"></script>
     <script>
       Centipede.canvasEl = document.getElementById("game-canvas");
       Centipede.timers = [];
       Centipede.game = new Centipede.Game();
+      var soundLibrary = {
+        "fire":{"Frequency":{"Start":1057.2027687355876,"Min":0.046342043811455375,"Slide":-0.6605383894406259},"Generator":{"Func":"string","A":0.7360220073955134,"ASlide":0.05587897589430212},"Filter":{"HP":0.09393367054872215},"Volume":{"Sustain":0.16330559635534883,"Decay":0}},
+        "powerup":{"Frequency":{"Start":603.4692099038512,"Slide":0.1934533710591495},"Vibrato":{"Depth":0.13651494896039368,"Frequency":17.767200272064656},"Generator":{"Func":"string"},"Volume":{"Sustain":0.3637428052723408,"Decay":0.3429023863747716}},
+        "powerdown":{"Frequency":{"Start":807.2296333499253,"Slide":-0.45851431218907235},"Generator":{"Func":"triangle","A":0.3962765570729971,"ASlide":-0.78},"Filter":{"HP":0.13924705653917044},"Volume":{"Sustain":0.09452428752556444,"Decay":0.2435629218351096}},
+        "loseLife":{"Frequency":{"Start":735.8008791320026,"Min":110,"Slide":-0.8856289531569927},"Generator":{"Func":"string","A":0.7748559150844813,"ASlide":0.3073868746636435},"Phaser":{"Offset":0.004390245582908392,"Sweep":0.1241689112968743},"Volume":{"Sustain":0.39,"Decay":0.2987039128318429,"Punch":0.17388063005637378,"Attack":0}},
+        "die":{"Frequency":{"Start":100.18926258198917,"Min":1587.6887737051584,"Max":117.02149813994765,"Slide":0.33151340251788497,"DeltaSlide":0.1965482453815639,"RepeatSpeed":2.789941867114976,"ChangeAmount":3.777931882068515,"ChangeSpeed":0.41},"Vibrato":{"Depth":0.5822702802252024,"DepthSlide":-0.41,"Frequency":10.01,"FrequencySlide":-0.61},"Generator":{"Func":"square","A":0.32370688556693494,"B":0.4721532999537885,"ASlide":-0.9951571268029511,"BSlide":0.19645820744335651},"Guitar":{"A":0.9221436583902687,"B":0.24780208058655262,"C":0.8618826810270548},"Phaser":{"Offset":0.3652322771959007,"Sweep":-0.1426410679705441},"Volume":{"Master":0.11,"Attack":0.349846170283854,"Sustain":1.13,"Punch":2.4781218068674207,"Decay":1.1300643947906792}},
+        "hitMushroom":{"Frequency":{"Start":1545.3446379490197,"Min":357.8210202232003,"Slide":-0.7122154715703801},"Generator":{"Func":"string","A":0.8263088008156046,"ASlide":0.6412072492297738,"B":0.16},"Filter":{"HP":0.21675810513552277},"Volume":{"Sustain":0.24423355353064835,"Decay":0.33,"Punch":1.2}},
+        "killSpider":{"Frequency":{"Start":1277.5687352567911,"Slide":1,"RepeatSpeed":0,"Max":30,"DeltaSlide":-0.94,"ChangeAmount":-12},"Generator":{"Func":"noise"},"Phaser":{"Offset":-0.006889635720290221,"Sweep":-0.26872647246345877},"Volume":{"Sustain":0.20089987921528518,"Decay":0.485570793855004,"Punch":0.5438641811255366}},
+        "killSegment":{"Frequency":{"Start":1028.3006367087364,"Slide":-0.3066414884757251},"Generator":{"Func":"noise"},"Volume":{"Sustain":0.10425301392097026,"Decay":0.38225560972932726,"Punch":0.28350639091804625}},
+        "killDropper":{"Frequency":{"Start":1208,"Min":30,"Slide":-0.8856289531569927},"Generator":{"Func":"synth","A":0.7748559150844813,"ASlide":0.3073868746636435},"Phaser":{"Offset":0.004390245582908392,"Sweep":0.1241689112968743},"Volume":{"Sustain":0.39,"Decay":0.2987039128318429,"Punch":0.17388063005637378,"Attack":0}},
+        "killMushroom":{"Frequency":{"Start":922.8066242858768,"Min":346.52912836521864,"Slide":-0.7037406354444102},"Generator":{"Func":"unoise","A":0.5396980682620779,"ASlide":0.4534936160081997},"Filter":{"HP":0.14249601988121866},"Volume":{"Sustain":0.23509480375796557,"Decay":0.2946918555535376,"Punch":0.29945049807429314}},
+        "addSegment":{"Frequency":{"Start":400.98543686792254,"Slide":-0.3850861652754247},"Generator":{"Func":"noise","A":0.24813762148842214,"ASlide":0.22591722989454865},"Filter":{"HP":0.13685138302389532},"Volume":{"Sustain":0.017315713828429582,"Decay":0.11490301317535341}}
+      };
+      Centipede.sfx = jsfx.Sounds(soundLibrary);
       new Centipede.GameView(
         Centipede.game,
         Centipede.canvasEl.getContext("2d")
