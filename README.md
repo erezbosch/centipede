@@ -4,10 +4,11 @@
 A browser version of the arcade game. Made with JavaScript and HTML5 Canvas.
 
 ### Features
-* Use arrow keys and spacebar to move and shoot.
-* Or use the mouse to move and shoot.
+* Use the mouse to move and shoot.
+* Or use the arrow keys and space bar if you are a masochist.
 * There's a centipede.
 * You can shoot at it.
+* Once you destroy all the centipede segments, a new centipede will appear.
 * There are mushrooms. You can shoot them too.
 * When a centipede segment is shot, it spawns a mushroom in its place.
 * Sometimes when you destroy a mushroom, it'll spawn a powerup.
@@ -20,3 +21,4 @@ mushrooms as it goes.
 * If you run into something that's not a mushroom, you'll lose a life.
 * Once you're out of lives, you lose, and you can click or press space to play
 again.
+* Procedurally generated sound effects
