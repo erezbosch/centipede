@@ -61,9 +61,8 @@
         "addSegment":{"Frequency":{"Start":400.98543686792254,"Slide":-0.3850861652754247},"Generator":{"Func":"noise","A":0.24813762148842214,"ASlide":0.22591722989454865},"Filter":{"HP":0.13685138302389532},"Volume":{"Sustain":0.017315713828429582,"Decay":0.11490301317535341}}
       };
       Object.keys(soundLibrary).forEach(function (key) {
-        soundLibrary[key]['Volume'].Master = 0.2;
+        soundLibrary[key].Volume.Master = 1 / 3;
       });
-      debugger;
       Centipede.sfx = jsfx.Sounds(soundLibrary);
       new Centipede.GameView(
         Centipede.game,
