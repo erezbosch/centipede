@@ -7,10 +7,11 @@ body {
   float: left;
   padding: 80px 50px 0 50px;
   width: 410px;
+  color: gray;
 }
 
 .info ul {
-  list-style-type: lao;
+  list-style-type: decimal;
 }
 
 .game {
